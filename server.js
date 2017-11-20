@@ -4,9 +4,10 @@ var io = require('socket.io')(server);
 var Chat = require('./models/Chat');
 var chatController = require('./controllers/chat');
 
-server.listen(8000, function() {
+app.set('port', process.env.PORT || 8000);
+server.listen(app.get('port'), function () {
   console.log('----------------------------------------');            // eslint-disable-line no-console
-  console.log('Express server listening on port ' + 8000); // eslint-disable-line no-console
+  console.log('Express server listening on port ' + app.get('port')); // eslint-disable-line no-console
   console.log('----------------------------------------');            // eslint-disable-line no-console
 });
 
